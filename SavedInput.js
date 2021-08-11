@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Input from './Input';
-import { ThemeProvider, Text } from 'react-native-elements';
-import Theme from './App/Theme/index';
+import { Text } from 'react-native-elements';
 
 const STORAGE_KEY = 'STRING_DATA'
 
@@ -43,9 +42,7 @@ export default function SavedInput() {
           saveName(value)
         }}
       />
-      <ThemeProvider theme={Theme}>
-        <Text h4 style={styles.text}>Hello {name}!</Text>
-      </ThemeProvider>
+     <Text h4 style={styles.text}>Hello {name}!</Text>
     </View>
   )
 }
