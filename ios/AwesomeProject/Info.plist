@@ -6,6 +6,7 @@
 	<array>
 		<string>FontAwesome.ttf</string>
 		<string>SFProRounded-Bold.otf</string>
+		<string>SFProRounded-Regular.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
