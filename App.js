@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SavedInput from './SavedInput';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ThemeProvider, Button } from 'react-native-elements';
+import { ThemeProvider, Text, Button } from 'react-native-elements';
 import Theme from './App/Theme/index'
 
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+      <ThemeProvider theme={Theme}>
+        <Text h2>Home Screen</Text>
+      </ThemeProvider>
       <Icon name="rocket" size={30} color="#900" />
       <SavedInput/>
       <ThemeProvider theme={Theme}>
@@ -27,8 +29,8 @@ function HomeScreen({ navigation }) {
 function DetailsScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
       <ThemeProvider theme={Theme}>
+        <Text h2>Details Screen</Text>
         <Button
           title="Go to Details... again"
           onPress={() => navigation.push('Details')}
