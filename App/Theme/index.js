@@ -6,7 +6,7 @@ const Theme = {
       },
       h4Style: {
         fontFamily: 'SFProRounded-Regular',
-        color: '#296883'
+        color: '#519db8'
       },
     },
     Button: {
