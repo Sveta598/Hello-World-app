@@ -3,11 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'react-native-elements';
 import Theme from './App/Theme/index';
-//import Home from './App/Screens/Home';
-//import Accounts from './App/Screens/Accounts';
+import HomeStack from './App/Navigation/HomeStack';
 import Giving from './App/Screens/Giving';
 import Payments from './App/Screens/Payments';
 import Cards from './App/Screens/Cards';
+
 import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
@@ -20,7 +20,7 @@ function App() {
           <Tab.Navigator tabBar={props => <BottomTabBar {...props} />}>
             <Tab.Screen 
               name="Home" 
-              component={Home} 
+              component={HomeStack} 
               options={{
                 tabBarLabel: 'Home',
                 tabBarIcon: () => (
