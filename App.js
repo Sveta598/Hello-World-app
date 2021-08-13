@@ -4,6 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'react-native-elements';
 import Theme from './App/Theme/index';
 import HomeStack from './App/Navigation/HomeStack';
+import AccountsStack from './App/Navigation/AccountsStack';
 import Giving from './App/Screens/Giving';
 import Payments from './App/Screens/Payments';
 import Cards from './App/Screens/Cards';
@@ -30,7 +31,7 @@ function App() {
             />
             <Tab.Screen 
               name="Accounts" 
-              component={Accounts} 
+              component={AccountsStack} 
               options={{
                 tabBarLabel: 'Accounts',
                 tabBarIcon: () => (

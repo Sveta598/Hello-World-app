@@ -4,20 +4,20 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'react-native-elements';
 import Theme from '../Theme/index';
-import Home from '../Screens/Home';
-import Checking from '../Screens/Checking';
+import Accounts from '../Screens/Accounts';
+import Savings from '../Screens/Savings';
 
 const Stack = createNativeStackNavigator();
    
-function HomeStack() {
+function AccountsStack() {
     return (
       <SafeAreaProvider>
         <ThemeProvider theme={Theme}>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
-              <Stack.Screen name="Home" component={Home} 
+            <Stack.Navigator initialRouteName="Accounts">
+              <Stack.Screen name="Accounts" component={Accounts} 
                 options={{ 
-                  title: 'Home', 
+                  title: 'Accounts', 
                   headerStyle: {
                     backgroundColor: '#f4511e',
                   },
@@ -27,9 +27,9 @@ function HomeStack() {
                   }
                 }}
               />
-              <Stack.Screen name="Checking" component={Checking} 
+              <Stack.Screen name="Savings" component={Savings} 
                 options={{ 
-                  title: 'Checking', 
+                  title: 'Savings', 
                   headerStyle: {
                     backgroundColor: '#51bbd9',
                   },
@@ -46,4 +46,4 @@ function HomeStack() {
     );
   }
   
-  export default HomeStack;
+  export default AccountsStack;
