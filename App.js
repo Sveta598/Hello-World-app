@@ -1,45 +1,19 @@
 import React from 'react';
-import { View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SavedInput from './SavedInput';
-import Icon from 'react-native-vector-icons/FontAwesome';
+//import SavedInput from './SavedInput';
+//import Icon from 'react-native-vector-icons/FontAwesome';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ThemeProvider, Text, Button } from 'react-native-elements';
-import Theme from './App/Theme/index'
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text h2>Home Screen</Text>
-      <Icon name="rocket" size={30} color="#900" />
-      <SavedInput/>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
-  );
-}
-
-function DetailsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text h2>Details Screen</Text>
-       <Button
-          title="Go to Details... again"
-          onPress={() => navigation.push('Details')}
-      />
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Image source={require('./App/Assets/Images/home.png')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-      <Button
-        title="Go back to first screen in stack"
-        onPress={() => navigation.popToTop()}
-      />
-    </View>
-  );
-}
+import { ThemeProvider } from 'react-native-elements';
+import Theme from './App/Theme/index';
+import Signin from './App/Screens/Signin';
+import Home from './App/Screens/Home';
+import Accounts from './App/Screens/Accounts';
+import Giving from './App/Screens/Giving';
+import Payments from './App/Screens/Payments';
+import Cards from './App/Screens/Cards';
+import Checking from './App/Screens/Checking';
+import Savings from './App/Screens/Savings';
 
 const Stack = createNativeStackNavigator();
  
@@ -49,29 +23,111 @@ const Stack = createNativeStackNavigator();
       <ThemeProvider theme={Theme}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={HomeScreen} 
+
+            <Stack.Screen name="Signin" component={Signin} 
               options={{ 
-                title: 'My home', 
+                title: 'Signin', 
                 headerStyle: {
-                  backgroundColor: '#f4511e',
-                },
+                  backgroundColor: '#ce0b83',
+              },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
-                  fontWeight: 'bold',
+                  fontFamily: 'SFProRounded-Regular',
                 }
               }}
             />
-            <Stack.Screen name="Details" component={DetailsScreen} 
+
+            <Stack.Screen name="Home" component={Home} 
               options={{ 
+                title: 'Spiral', 
                 headerStyle: {
-                  backgroundColor: '#51bbd9',
+                  backgroundColor: '#ce0b83',
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
-                  fontWeight: 'bold',
+                  fontFamily: 'SFProRounded-Regular',
                 }
               }}
             />
+            
+            <Stack.Screen name="Accounts" component={Accounts} 
+              options={{ 
+                title: 'Accounts', 
+                headerStyle: {
+                  backgroundColor: '#ce0b83',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontFamily: 'SFProRounded-Regular',
+                }
+              }}
+            />
+
+            <Stack.Screen name="Giving" component={Giving} 
+              options={{ 
+                title: 'Giving', 
+                headerStyle: {
+                  backgroundColor: '#ce0b83',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontFamily: 'SFProRounded-Regular',
+                }
+              }}
+            />
+
+            <Stack.Screen name="Payments" component={Payments} 
+              options={{ 
+                title: 'Payments', 
+                headerStyle: {
+                  backgroundColor: '#ce0b83',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontFamily: 'SFProRounded-Regular',
+                }
+              }}
+            />
+
+            <Stack.Screen name="Cards" component={Cards} 
+              options={{ 
+                title: 'Cards', 
+                headerStyle: {
+                  backgroundColor: '#ce0b83',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontFamily: 'SFProRounded-Regular',
+                }
+              }}
+            />
+
+            <Stack.Screen name="Checking" component={Checking} 
+              options={{ 
+                title: 'Checking', 
+                headerStyle: {
+                  backgroundColor: '#ce0b83',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontFamily: 'SFProRounded-Regular',
+                }
+              }}
+            />
+
+            <Stack.Screen name="Savings" component={Savings} 
+              options={{ 
+                title: 'Savings', 
+                headerStyle: {
+                  backgroundColor: '#ce0b83',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontFamily: 'SFProRounded-Regular',
+                }
+              }}
+            />
+
           </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>
