@@ -1,82 +1,78 @@
 import React from 'react';
-import { View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SavedInput from './SavedInput';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ThemeProvider, Text, Button } from 'react-native-elements';
-import Theme from './App/Theme/index'
+import { ThemeProvider } from 'react-native-elements';
+import Theme from './App/Theme/index';
+//import Home from './App/Screens/Home';
+//import Accounts from './App/Screens/Accounts';
+import Giving from './App/Screens/Giving';
+import Payments from './App/Screens/Payments';
+import Cards from './App/Screens/Cards';
+import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text h2>Home Screen</Text>
-      <Icon name="rocket" size={30} color="#900" />
-      <SavedInput/>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
-  );
-}
+const Tab = createBottomTabNavigator();
 
-function DetailsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text h2>Details Screen</Text>
-       <Button
-          title="Go to Details... again"
-          onPress={() => navigation.push('Details')}
-      />
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Image source={require('./App/Assets/Images/home.png')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-      <Button
-        title="Go back to first screen in stack"
-        onPress={() => navigation.popToTop()}
-      />
-    </View>
-  );
-}
-
-const Stack = createNativeStackNavigator();
- 
- function App() {
+function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={Theme}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={HomeScreen} 
-              options={{ 
-                title: 'My home', 
-                headerStyle: {
-                  backgroundColor: '#f4511e',
-                },
-                headerTintColor: '#fff',
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                }
+          <Tab.Navigator tabBar={props => <BottomTabBar {...props} />}>
+            <Tab.Screen 
+              name="Home" 
+              component={Home} 
+              options={{
+                tabBarLabel: 'Home',
+                tabBarIcon: () => (
+                    <Image source={require('./App/Assets/Images/home.png')} />
+                ),
               }}
             />
-            <Stack.Screen name="Details" component={DetailsScreen} 
-              options={{ 
-                headerStyle: {
-                  backgroundColor: '#51bbd9',
-                },
-                headerTintColor: '#fff',
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                }
+            <Tab.Screen 
+              name="Accounts" 
+              component={Accounts} 
+              options={{
+                tabBarLabel: 'Accounts',
+                tabBarIcon: () => (
+                    <Image source={require('./App/Assets/Images/accounts.png')} />
+                ),
               }}
             />
-          </Stack.Navigator>
+            <Tab.Screen 
+              name="Giving" 
+              component={Giving} 
+              options={{
+                tabBarLabel: 'Giving',
+                tabBarIcon: () => (
+                    <Image source={require('./App/Assets/Images/giving.png')} />
+                ),
+              }}
+            />
+            <Tab.Screen 
+              name="Payments" 
+              component={Payments} 
+              options={{
+                tabBarLabel: 'Payments',
+                tabBarIcon: () => (
+                    <Image source={require('./App/Assets/Images/payment.png')} />
+                ),
+              }}
+            />
+            <Tab.Screen 
+              name="Cards" 
+              component={Cards} 
+              options={{
+                tabBarLabel: 'Cards',
+                tabBarIcon: () => (
+                    <Image source={require('./App/Assets/Images/cards.png')} />
+                ),
+              }}
+            />
+          </Tab.Navigator>
         </NavigationContainer>
       </ThemeProvider>
     </SafeAreaProvider>
   );
 }
-
+ 
 export default App;
