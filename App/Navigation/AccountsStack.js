@@ -9,11 +9,12 @@ import Savings from '../Screens/Savings';
 const Stack = createNativeStackNavigator();
 
 function AccountsTitle({ navigation }) {
+  console.log(navigation)
   return (
     <View 
       style={{ flexDirection: 'row',  
-      borderBottomWidth: 0.5, padding: 2,
-      borderBottomColor: '#d6a8d0', backgroundColor: '#ce0b83'}}>
+       padding: 2, marginLeft: -8,
+      backgroundColor: '#ce0b83'}}>
         <TouchableHighlight style={{justifyContent: 'center', 
         alignItems: 'center'}}
         onPress={() => navigation.navigate('Home')}>

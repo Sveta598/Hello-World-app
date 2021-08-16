@@ -10,11 +10,13 @@ function HomeTitle() {
   return (
     <View 
       style={{ flexDirection: 'row',  
-      borderBottomWidth: 0.5, padding: 2,
-      borderBottomColor: '#d6a8d0', backgroundColor: '#ce0b83'}}>
+       padding: 2, marginLeft: -8,
+       backgroundColor: '#ce0b83'}}>
          <Image 
           source={require('../Assets/Images/burgerMenuIcon.png')}
-          style={{flex: 1, color: '#000'}} />
+          style={{flex: 1, color: '#000', 
+          width: 55, height: 55,
+          marginLeft: 5,  marginTop: 10,  marginBottom: 5}} />
           <View style={{ flexDirection: 'row', flex: 4}}>
             <Image 
             source={require('../Assets/Images/logo.png')}

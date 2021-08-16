@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'react-native-elements';
@@ -21,37 +21,44 @@ function App() {
       <ThemeProvider theme={Theme}>
         <NavigationContainer>
           <Tab.Navigator 
-                      tabBarOptions={{
-                        style: {
-                          backgroundColor: 'transparent'
-                        }
-                      }}
- 
-        
-          tabBar={props => 
-            
-            <BlurView
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-            }}
-            tint="dark"
-            intensity={100}
-          >
-          
-          <BottomTabBar {...props} />   
-          
-          </BlurView>
-          
-          
-        } >
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: '#d73374',
+              },
+              headerTitleStyle: {
+                color: '#fff',
+              },
+              tabBarStyle: {
+                borderTopColor: '#666666',
+                backgroundColor: 'transparent',
+              },
+              tabBarActiveTintColor: "red",
+            }}          
+            tabBar={props => {
+            return (
+              <BlurView
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                }}
+                blurType="light"
+                blurAmount={100}>
+                <BottomTabBar {...props} />
+              </BlurView>
+            );
+          }}>
             <Tab.Screen 
               name="Home" 
               component={HomeStack} 
               options={{
-                tabBarLabel: 'Home',
+                //tabBarLabel: 'Home',
+                tabBarLabel: () => (
+                  <Text style={{color: '#ce0b83'}}>
+                    Home
+                  </Text>
+              ),
                 tabBarIcon: () => (
                   <Image source={require('./App/Assets/Images/home.png')} 
                   
@@ -63,7 +70,12 @@ function App() {
               name="Accounts" 
               component={AccountsStack} 
               options={{
-                tabBarLabel: 'Accounts',
+                //tabBarLabel: 'Accounts',
+                tabBarLabel: () => (
+                  <Text style={{color: '#ce0b83'}}>
+                    Accounts
+                  </Text>
+              ),
                 tabBarIcon: () => (
                     <Image source={require('./App/Assets/Images/accounts.png')} />
                 ),
