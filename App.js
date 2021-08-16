@@ -25,10 +25,17 @@ function App() {
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={{
+              headerStyle: {
+                backgroundColor: '#d73374',
+              },
+              headerTitleStyle: {
+                color: '#fff',
+              },
               tabBarStyle: {
                 borderTopColor: '#666666',
                 backgroundColor: 'transparent',
               },
+              tabBarActiveTintColor: "red",
             }}
             tabBar={props => {
               return (
@@ -50,6 +57,7 @@ function App() {
               component={HomeStack}
               options={{
                 tabBarLabel: 'Home',
+                headerShown: false,
                 tabBarIcon: () => (
                   <Image source={require('./App/Assets/Images/home.png')} />
                 ),
