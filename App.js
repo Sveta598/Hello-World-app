@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image } from 'react-native';
+import { Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'react-native-elements';
@@ -53,29 +53,19 @@ function App() {
               name="Home" 
               component={HomeStack} 
               options={{
-                //tabBarLabel: 'Home',
-                tabBarLabel: () => (
-                  <Text style={{color: '#ce0b83'}}>
-                    Home
-                  </Text>
-              ),
+                tabBarLabel: 'Home',
+                headerShown: false,
                 tabBarIcon: () => (
-                  <Image source={require('./App/Assets/Images/home.png')} 
-                  
-                  />
-                 ),
+                  <Image source={require('./App/Assets/Images/home.png')} />
+                ),
               }}
             />
             <Tab.Screen 
               name="Accounts" 
               component={AccountsStack} 
               options={{
-                //tabBarLabel: 'Accounts',
-                tabBarLabel: () => (
-                  <Text style={{color: '#ce0b83'}}>
-                    Accounts
-                  </Text>
-              ),
+                tabBarLabel: 'Accounts',
+                headerShown: false,
                 tabBarIcon: () => (
                     <Image source={require('./App/Assets/Images/accounts.png')} />
                 ),
