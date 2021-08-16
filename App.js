@@ -9,6 +9,7 @@ import AccountsStack from './App/Navigation/AccountsStack';
 import Giving from './App/Screens/Giving';
 import Payments from './App/Screens/Payments';
 import Cards from './App/Screens/Cards';
+import { BlurView } from "@react-native-community/blur";
 
 import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -19,15 +20,43 @@ function App() {
     <SafeAreaProvider>
       <ThemeProvider theme={Theme}>
         <NavigationContainer>
-          <Tab.Navigator tabBar={props => <BottomTabBar {...props} />}>
+          <Tab.Navigator 
+                      tabBarOptions={{
+                        style: {
+                          backgroundColor: 'transparent'
+                        }
+                      }}
+ 
+        
+          tabBar={props => 
+            
+            <BlurView
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+            }}
+            tint="dark"
+            intensity={100}
+          >
+          
+          <BottomTabBar {...props} />   
+          
+          </BlurView>
+          
+          
+        } >
             <Tab.Screen 
               name="Home" 
               component={HomeStack} 
               options={{
                 tabBarLabel: 'Home',
                 tabBarIcon: () => (
-                    <Image source={require('./App/Assets/Images/home.png')} />
-                ),
+                  <Image source={require('./App/Assets/Images/home.png')} 
+                  
+                  />
+                 ),
               }}
             />
             <Tab.Screen 

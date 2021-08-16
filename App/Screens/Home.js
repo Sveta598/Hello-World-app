@@ -8,7 +8,25 @@ function Home() {
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
 
           <View>
-            <Text h4>Good Morning Danny | Jul 12, 2020</Text>
+            <Text h4>Good Morning Danny | Jul 12, 2020hhhh
+            Good Morning Danny | Jul 12, 2020hhhh
+            Good Morning Danny | Jul 12, 2020hhhh
+            Good Morning Danny | Jul 12, 2020hhhh
+            Good Morning Danny | Jul 12, 2020hhhh
+
+            Good Morning Danny | Jul 12, 2020hhhh
+
+            Good Morning Danny | Jul 12, 2020hhhh
+
+            Good Morning Danny | Jul 12, 2020hhhh
+
+            
+            
+            
+            
+            
+            
+            </Text>
           </View>
 
           <View style={{ alignItems: 'center', justifyContent: 'center' }}>
