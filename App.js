@@ -1,111 +1,47 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'react-native-elements';
 import Theme from './App/Theme/index';
-import HomeStack from './App/Navigation/HomeStack';
-import AccountsStack from './App/Navigation/AccountsStack';
-import Giving from './App/Screens/Giving';
-import Payments from './App/Screens/Payments';
-import Cards from './App/Screens/Cards';
-import { BlurView } from "@react-native-community/blur";
+import Tabs from './App/Navigation/Tabs';
+import Checking from './App/Screens/Checking';
+import Savings from './App/Screens/Savings';
 
-import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={Theme}>
-        <NavigationContainer>
-          <Tab.Navigator 
-            screenOptions={{
-              headerStyle: {
-                backgroundColor: '#d73374',
-              },
-              headerTitleStyle: {
-                color: '#fff',
-              },
-              tabBarStyle: {
-                borderTopColor: '#666666',
-                backgroundColor: 'transparent',
-              },
-              tabBarActiveTintColor: "red",
-            }}          
-            tabBar={props => {
-            return (
-              <BlurView
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="Tabs" 
+                component={Tabs} 
+                options={{
+                  headerShown: false,
                 }}
-                blurType="light"
-                blurAmount={100}>
-                <BottomTabBar {...props} />
-              </BlurView>
-            );
-          }}>
-            <Tab.Screen 
-              name="Home" 
-              component={HomeStack} 
-              options={{
-                tabBarLabel: 'Home',
-                headerShown: false,
-                tabBarIcon: () => (
-                  <Image source={require('./App/Assets/Images/home.png')} />
-                ),
-              }}
-            />
-            <Tab.Screen 
-              name="Accounts" 
-              component={AccountsStack} 
-              options={{
-                tabBarLabel: 'Accounts',
-                headerShown: false,
-                tabBarIcon: () => (
-                    <Image source={require('./App/Assets/Images/accounts.png')} />
-                ),
-              }}
-            />
-            <Tab.Screen 
-              name="Giving" 
-              component={Giving} 
-              options={{
-                tabBarLabel: 'Giving',
-                tabBarIcon: () => (
-                    <Image source={require('./App/Assets/Images/giving.png')} />
-                ),
-              }}
-            />
-            <Tab.Screen 
-              name="Payments" 
-              component={Payments} 
-              options={{
-                tabBarLabel: 'Payments',
-                tabBarIcon: () => (
-                    <Image source={require('./App/Assets/Images/payment.png')} />
-                ),
-              }}
-            />
-            <Tab.Screen 
-              name="Cards" 
-              component={Cards} 
-              options={{
-                tabBarLabel: 'Cards',
-                tabBarIcon: () => (
-                    <Image source={require('./App/Assets/Images/cards.png')} />
-                ),
-              }}
-            />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </ThemeProvider>
+              />
+              <Stack.Screen name="Checking" 
+                component={Checking} 
+                initialParams={{subtitle: "Main account (...0353)"}} 
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen name="Savings" 
+                component={Savings} 
+                initialParams={{subtitle: "Buy a house (...4044)"}} 
+                options={{
+                  headerShown: false,
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </ThemeProvider>
     </SafeAreaProvider>
   );
 }
  
 export default App;
+
