@@ -10,6 +10,7 @@ import {
   BottomTabBar,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
+import colors from '../Theme/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,9 +19,6 @@ function Tabs() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        headerStyle: {
-          backgroundColor: '#d73374',
-        },
         tabBarStyle: {
           borderTopColor: '#666666',
           ...Platform.select({
@@ -32,7 +30,7 @@ function Tabs() {
             },
           }),
         },
-        tabBarActiveTintColor: '#d73374',
+        tabBarActiveTintColor: colors.primary,
       }}
       tabBar={props => {
         return Platform.OS === 'ios' ? (

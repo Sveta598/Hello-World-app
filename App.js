@@ -8,12 +8,13 @@ import Tabs from './App/Navigation/Tabs';
 import Checking from './App/Screens/Checking';
 import Savings from './App/Screens/Savings';
 import {StatusBar} from 'react-native';
+import colors from './App/Theme/colors';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   useEffect(() => {
-    StatusBar.setBackgroundColor('#d73374');
+    StatusBar.setBackgroundColor(colors.primary);
   }, []);
 
   return (
