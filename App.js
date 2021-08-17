@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
@@ -7,19 +7,21 @@ import Theme from './App/Theme/index';
 import Tabs from './App/Navigation/Tabs';
 import Checking from './App/Screens/Checking';
 import Savings from './App/Screens/Savings';
+import {StatusBar} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
+  useEffect(() => {
+    StatusBar.setBackgroundColor('#d73374');
+  }, []);
+
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={Theme}>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen
-              name="Tabs"
-              component={Tabs}
-            />
+          <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Tabs" component={Tabs} />
             <Stack.Screen
               name="Checking"
               component={Checking}
