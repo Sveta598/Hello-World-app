@@ -2,7 +2,6 @@ const Theme = {
     Text: {
       style: {
         fontFamily: 'SFProRounded-Regular',
-        color: '#fff',
       },
       h2Style: {
         color: '#423232'

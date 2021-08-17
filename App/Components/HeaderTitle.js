@@ -12,11 +12,13 @@ const HeaderTitle = props => {
           fontFamily: 'SFProRounded-Bold',
           fontSize: 16,
           lineHeight: 16,
+          color: '#fff',
         }}>
         {title}
       </Text>
       {subtitle && (
-        <Text style={{fontSize: 13, lineHeight: 13, marginTop: 5}}>
+        <Text
+          style={{fontSize: 13, lineHeight: 13, marginTop: 5, color: '#fff'}}>
           {subtitle}
         </Text>
       )}
