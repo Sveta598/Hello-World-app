@@ -4,10 +4,11 @@ import {View, Image, TouchableOpacity} from 'react-native';
 import Avatar from './Avatar';
 import HeaderTitle from '../Components/HeaderTitle';
 import Header from '../Components/Header';
+import Container from '../Components/Container';
 
 function Checking({navigation, route}) {
   return (
-    <View>
+    <Container>
       <Header
         headerLeft={() => (
           <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -26,7 +27,7 @@ function Checking({navigation, route}) {
       <View style={{alignItems: 'center', justifyContent: 'center'}}>
         <Text h2>Coming soon</Text>
       </View>
-    </View>
+    </Container>
   );
 }
 

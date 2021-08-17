@@ -4,10 +4,11 @@ import {View, TouchableOpacity} from 'react-native';
 import Header from '../Components/Header';
 import Avatar from './Avatar';
 import HeaderTitle from '../Components/HeaderTitle';
+import Container from '../Components/Container';
 
 function Payments() {
   return (
-    <View>
+    <Container>
       <Header
         headerTitle={() => <HeaderTitle title="Payments" />}
         headerRight={() => (
@@ -19,7 +20,7 @@ function Payments() {
       <View style={{alignItems: 'center', justifyContent: 'center'}}>
         <Text h2>Coming soon</Text>
       </View>
-    </View>
+    </Container>
   );
 }
 

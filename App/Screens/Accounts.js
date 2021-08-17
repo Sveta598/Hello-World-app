@@ -1,13 +1,13 @@
 import React from 'react';
-import {View, TouchableOpacity, Button} from 'react-native';
-import {Text} from 'react-native-elements';
+import {TouchableOpacity, Button} from 'react-native';
 import Avatar from './Avatar';
 import Header from '../Components/Header';
 import HeaderTitle from '../Components/HeaderTitle';
+import Container from '../Components/Container';
 
 function Accounts({navigation}) {
   return (
-    <View>
+    <Container>
       <Header
         headerTitle={() => <HeaderTitle title="Accounts" />}
         headerRight={() => (
@@ -20,7 +20,7 @@ function Accounts({navigation}) {
         title="Go to Savings"
         onPress={() => navigation.navigate('Savings')}
       />
-    </View>
+    </Container>
   );
 }
 

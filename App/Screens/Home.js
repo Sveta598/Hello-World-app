@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, Button, Image, TouchableOpacity} from 'react-native';
+import {Button, Image, TouchableOpacity} from 'react-native';
 import Avatar from './Avatar';
 import Header from '../Components/Header';
+import Container from '../Components/Container';
 
 function Home({navigation}) {
   return (
-    <View>
+    <Container>
       <Header
         headerLeft={() => (
           <TouchableOpacity>
@@ -25,7 +26,7 @@ function Home({navigation}) {
         title="Go to Checking"
         onPress={() => navigation.navigate('Checking')}
       />
-    </View>
+    </Container>
   );
 }
 

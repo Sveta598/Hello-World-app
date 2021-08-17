@@ -4,10 +4,11 @@ import {View, TouchableOpacity} from 'react-native';
 import Avatar from './Avatar';
 import HeaderTitle from '../Components/HeaderTitle';
 import Header from '../Components/Header';
+import Container from '../Components/Container';
 
 function Cards() {
   return (
-    <View>
+    <Container>
       <Header
         headerTitle={() => <HeaderTitle title="Cards" />}
         headerRight={() => (
@@ -19,7 +20,7 @@ function Cards() {
       <View style={{alignItems: 'center', justifyContent: 'center'}}>
         <Text h2>Coming soon</Text>
       </View>
-    </View>
+    </Container>
   );
 }
 
