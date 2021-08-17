@@ -1,12 +1,11 @@
 const Theme = {
     Text: {
-      h2Style: {
+      style: {
         fontFamily: 'SFProRounded-Regular',
-        color: '#423232'
+        color: '#fff',
       },
-      h4Style: {
-        fontFamily: 'SFProRounded-Regular',
-        color: '#519db8'
+      h2Style: {
+        color: '#423232'
       },
     },
     Button: {
