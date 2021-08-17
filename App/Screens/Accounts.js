@@ -17,10 +17,6 @@ function Accounts({navigation}) {
         )}
       />
       <Button
-        title="Go to Accounts"
-        onPress={() => navigation.navigate('Accounts')}
-      />
-      <Button
         title="Go to Savings"
         onPress={() => navigation.navigate('Savings')}
       />

@@ -21,7 +21,6 @@ function Home({navigation}) {
           </TouchableOpacity>
         )}
       />
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button
         title="Go to Checking"
         onPress={() => navigation.navigate('Checking')}
