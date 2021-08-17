@@ -7,14 +7,17 @@ import Theme from './App/Theme/index';
 import Tabs from './App/Navigation/Tabs';
 import Checking from './App/Screens/Checking';
 import Savings from './App/Screens/Savings';
-import {StatusBar} from 'react-native';
+import {StatusBar, Platform} from 'react-native';
 import colors from './App/Theme/colors';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   useEffect(() => {
-    StatusBar.setBackgroundColor(colors.primary);
+    if (Platform.OS === 'android') {
+      StatusBar.setBackgroundColor(colors.primary);
+    }
+    StatusBar.setBarStyle("light-content")
   }, []);
 
   return (
