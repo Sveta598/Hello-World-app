@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Button, Image, TouchableOpacity } from 'react-native';
-import { Header } from '@react-navigation/elements';
+import {View, Button, Image, TouchableOpacity} from 'react-native';
 import Avatar from './Avatar';
+import Header from '../Components/Header';
 
-function Home({ navigation }) {
+function Home({navigation}) {
   return (
     <View>
       <Header
@@ -20,13 +20,12 @@ function Home({ navigation }) {
             <Avatar />
           </TouchableOpacity>
         )}
-        headerTitleAlign="center"
-        headerStyle={{backgroundColor: '#d73374'}}
-        headerLeftContainerStyle={{ paddingLeft: 15 }}
-        headerRightContainerStyle={{ paddingRight: 15 }}
       />
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go to Checking" onPress={() => navigation.navigate('Checking')} />
+      <Button
+        title="Go to Checking"
+        onPress={() => navigation.navigate('Checking')}
+      />
     </View>
   );
 }

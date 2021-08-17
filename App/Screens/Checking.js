@@ -1,37 +1,29 @@
 import React from 'react';
-import { Text } from 'react-native-elements';
-import { View, Image, TouchableOpacity } from 'react-native';
-import { Header } from '@react-navigation/elements';
+import {Text} from 'react-native-elements';
+import {View, Image, TouchableOpacity} from 'react-native';
 import Avatar from './Avatar';
+import HeaderTitle from '../Components/HeaderTitle';
+import Header from '../Components/Header';
 
-function Checking({ navigation, route }) {
+function Checking({navigation, route}) {
   return (
     <View>
       <Header
         headerLeft={() => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Home')}
-          >
-            <Image source={require('../Assets/Images/back.png')}/>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image source={require('../Assets/Images/back.png')} />
           </TouchableOpacity>
         )}
         headerTitle={() => (
-          <View>
-            <Text h3 style={{color: '#fff', fontWeight: 'bold'}}>Checking</Text>
-            <Text style={{color: '#fff'}}>{ route.params.subtitle }</Text>
-          </View>
+          <HeaderTitle title="Checking" subtitle={route.params.subtitle} />
         )}
         headerRight={() => (
           <TouchableOpacity>
             <Avatar />
           </TouchableOpacity>
         )}
-        headerTitleAlign="center"
-        headerStyle={{backgroundColor: '#d73374'}}
-        headerLeftContainerStyle={{ paddingLeft: 15 }}
-        headerRightContainerStyle={{ paddingRight: 15 }}
       />
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{alignItems: 'center', justifyContent: 'center'}}>
         <Text h2>Coming soon</Text>
       </View>
     </View>
