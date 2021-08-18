@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-function SignInScreen({authData}) {
+function SignInScreen() {
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
   
