@@ -12,6 +12,7 @@ import colors from './App/Theme/colors';
 import {createStore} from 'redux';
 import {rootReducer} from './App/Redux/Reducers/rootReducer';
 import {Provider} from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const store = createStore(rootReducer);
 
@@ -20,26 +21,28 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <ThemeProvider theme={Theme}>
-          <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
-          <NavigationContainer>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
-              <Stack.Screen name="Tabs" component={Tabs} />
-              <Stack.Screen
-                name="Checking"
-                component={Checking}
-                initialParams={{subtitle: 'Main account (...0353)'}}
-              />
-              <Stack.Screen
-                name="Savings"
-                component={Savings}
-                initialParams={{subtitle: 'Buy a house (...4044)'}}
-              />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </ThemeProvider>
-      </SafeAreaProvider>
+       <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaProvider>
+          <ThemeProvider theme={Theme}>
+            <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
+            <NavigationContainer>
+              <Stack.Navigator screenOptions={{headerShown: false}}>
+                <Stack.Screen name="Tabs" component={Tabs} />
+                <Stack.Screen
+                  name="Checking"
+                  component={Checking}
+                  initialParams={{subtitle: 'Main account (...0353)'}}
+                />
+                <Stack.Screen
+                  name="Savings"
+                  component={Savings}
+                  initialParams={{subtitle: 'Buy a house (...4044)'}}
+                />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </ThemeProvider>
+        </SafeAreaProvider>
+      </PersistGate>
     </Provider>
   );
 }
