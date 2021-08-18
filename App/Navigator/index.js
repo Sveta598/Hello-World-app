@@ -1,17 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Tabs from '../Navigation/Tabs';
+import Checking from '../Screens/Checking';
+import Savings from '../Screens/Savings';
+import SignInScreen from '../Screens/SignInScreen/index';
 
 function Navigator({ isSignedIn }) {
     isSignedIn ? (
     <>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="Tabs" component={Tabs} />
+      <Stack.Screen name="Checking" component={Checking} />
+      <Stack.Screen name="Savings" component={Savings} />
     </>
   ) : (
     <>
       <Stack.Screen name="SignIn" component={SignInScreen} />
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
     </>
   )
 }

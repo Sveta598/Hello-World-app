@@ -7,7 +7,7 @@ const initialState = {
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SignIn:
+       /* case SignIn:
             return {...state, jwtTokens: state.jwtTokens.concat(action.payload) }
 
 
@@ -15,7 +15,7 @@ export const rootReducer = (state = initialState, action) => {
 
 
         case SignOut: 
-            return {}
+            return {}*/
         default: return state
     }
 }

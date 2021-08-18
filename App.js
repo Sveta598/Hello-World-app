@@ -13,6 +13,7 @@ import {createStore} from 'redux';
 import {rootReducer} from './App/Redux/Reducers/rootReducer';
 import {Provider} from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import persistor from './App/Redux/configureStore'
 
 const store = createStore(rootReducer);
 
