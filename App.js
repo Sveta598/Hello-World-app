@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
@@ -13,15 +13,18 @@ import {createStore} from 'redux';
 import {rootReducer} from './App/Redux/Reducers/rootReducer';
 import {Provider} from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import persistor from './App/Redux/configureStore'
+import configureStore from './App/Redux/configureStore';
+import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer);
+const { store, persistor } = configureStore()
+
+const reduxStore = createStore(rootReducer, applyMiddleware(thunk));
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={reduxStore}>
        <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider>
           <ThemeProvider theme={Theme}>

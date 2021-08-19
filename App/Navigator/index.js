@@ -1,12 +1,20 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import Tabs from '../Navigation/Tabs';
 import Checking from '../Screens/Checking';
 import Savings from '../Screens/Savings';
 import SignInScreen from '../Screens/SignInScreen/index';
 
-function Navigator({ isSignedIn }) {
-    isSignedIn ? (
+function isSignedIn () {
+  if (jwtToken !== null) {
+    return true;
+  }
+  else {
+    return false
+  }
+}
+
+function Navigator() {
+    return isSignedIn ? (
     <>
       <Stack.Screen name="Tabs" component={Tabs} />
       <Stack.Screen name="Checking" component={Checking} />
@@ -19,18 +27,4 @@ function Navigator({ isSignedIn }) {
   )
 }
 
-const mapStateToProps = state => {
-    return {
-        isSignedIn: state.true
-    }
-}
-
-export default connect(mapStateToProps, null)(Navigator)
-
-
-
-
-
-
-
-
+export default Navigator;
