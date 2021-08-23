@@ -9,22 +9,17 @@ import Checking from './App/Screens/Checking';
 import Savings from './App/Screens/Savings';
 import {StatusBar} from 'react-native';
 import colors from './App/Theme/colors';
-import {createStore} from 'redux';
-import {rootReducer} from './App/Redux/Reducers/rootReducer';
 import {Provider} from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './App/Redux/configureStore';
-import thunk from 'redux-thunk';
 
 const { store, persistor } = configureStore()
-
-const reduxStore = createStore(rootReducer, applyMiddleware(thunk));
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <Provider store={reduxStore}>
+    <Provider store={store}>
        <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider>
           <ThemeProvider theme={Theme}>

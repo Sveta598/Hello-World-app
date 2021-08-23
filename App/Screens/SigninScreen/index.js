@@ -4,20 +4,20 @@ import {View, TextInput, TouchableOpacity} from 'react-native';
 import {Text, Button} from 'react-native-elements';
 import colors from '../../Theme/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+//import signIn from '../../Services/Authentication';
+import authValidation from '../../Redux/Reducers/actions/createDelay';
 
 function SignInScreen() {
     const [useremail, setUseremail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    
+    
     const [loading, setLoading] = React.useState(false)
-  
+    const jwtToken = useSelector(state => state.user.jwtToken);
+    const authError = useSelector(state => state.user.authError);
+
     const dispatch = useDispatch()
-    const authFlow = useSelector(state => {
-        return {
-            jwtToken: state.user.jwtToken,
-            authError: state.user.authError,
-          }
-    })
 
     return (
         <Container>
@@ -28,20 +28,44 @@ function SignInScreen() {
                 </Text>
             </View>
             <Text>Email</Text>
-            <TextInput
+
+            {/*<TextInput
             placeholder="Your email address"
             value={useremail}
             onChangeText={setUseremail}
-            />
-            <Text>Password</Text>
+            />*/}
+
             <TextInput
+            placeholder="Your email address"
+            value={useremail}
+            onChangeText={(e) => setUseremail(e.target.value)}
+            />
+
+
+
+
+            <Text>Password</Text>
+
+
+            {/*<TextInput
             placeholder="Password"
             value={password}
             onChangeText={setPassword}
             secureTextEntry
+            />*/}
+
+            <TextInput
+            placeholder="Password"
+            value={password}
+            onChangeText={(e) => setPassword(e.target.value)}
+            secureTextEntry
             />
+
             <Button title="FORGOT PASSWORD" />
-            <Button title="LOGIN" onPress={() => dispatch({ setUseremail, setPassword })} />
+            {/*<Button title="LOGIN" onPress={() => signIn({ useremail, password })} />*/}
+
+            <Button title="LOGIN" onPress={() => dispatch(authValidation())} />
+
             <View style={{textAlign: 'center'}}>
                 <Text>Lets test 2 ways to log in</Text>
             </View>

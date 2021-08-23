@@ -3,18 +3,12 @@ import Tabs from '../Navigation/Tabs';
 import Checking from '../Screens/Checking';
 import Savings from '../Screens/Savings';
 import SignInScreen from '../Screens/SignInScreen/index';
-
-function isSignedIn () {
-  if (jwtToken !== null) {
-    return true;
-  }
-  else {
-    return false
-  }
-}
+import {useSelector} from 'react-redux';
 
 function Navigator() {
-    return isSignedIn ? (
+  const jwtToken = useSelector(state => state.user.jwtToken);
+  
+  return jwtToken !== null ? (
     <>
       <Stack.Screen name="Tabs" component={Tabs} />
       <Stack.Screen name="Checking" component={Checking} />

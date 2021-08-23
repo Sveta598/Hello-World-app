@@ -1,4 +1,4 @@
-import {ADD_TOKEN, ADD_AUTH_ERROR, REMOVE_TOKEN } from './types';
+import {ADD_TOKEN, ADD_AUTH_ERROR, REMOVE_TOKEN } from './actions/types';
 
 export function SignIn(jwtToken, authError) {
     if (email.includes('iTechart') && password === 'admin') {
