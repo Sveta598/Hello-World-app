@@ -1,13 +1,9 @@
 import signIn from '../../../Services/Authentication';
-//import addTokenStarted from './addTokenStarted';
 import addToken from './addToken';
 import addAuthError from './addAuthError';
 
 function authValidation() {
-
   return dispatch => {
-    //dispatch(addTokenStarted());
-
     return signIn()
       .then(
         Token => {

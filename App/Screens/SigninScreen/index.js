@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from '../../Components/Container';
-import {View, TextInput, TouchableOpacity} from 'react-native';
+import {View, TextInput, TouchableOpacity, Keyboard} from 'react-native';
 import {Text, Button} from 'react-native-elements';
 import colors from '../../Theme/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useSelector, useDispatch} from 'react-redux';
-//import signIn from '../../Services/Authentication';
 import authValidation from '../../Redux/Reducers/actions/createDelay';
 
 function SignInScreen() {
-    const [useremail, setUseremail] = React.useState('');
-    const [password, setPassword] = React.useState('');
+    const [useremail, setUseremail] = useState('');
+    const [password, setPassword] = useState('');
+    const [keyboardStatus, setKeyboardStatus] = useState(undefined);
+
+    useEffect(() => {
+        const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
+          setKeyboardStatus("Keyboard Shown");
+        });
+        const hideSubscription = Keyboard.addListener("keyboardDidHide", () => {
+          setKeyboardStatus("Keyboard Hidden");
+        });
     
-    
-    const [loading, setLoading] = React.useState(false)
+        return () => {
+          showSubscription.remove();
+          hideSubscription.remove();
+        };
+    }, []);
+
+    const [loading, setLoading] = useState(false)
     const jwtToken = useSelector(state => state.user.jwtToken);
     const authError = useSelector(state => state.user.authError);
 
@@ -28,44 +41,25 @@ function SignInScreen() {
                 </Text>
             </View>
             <Text>Email</Text>
-
-            {/*<TextInput
-            placeholder="Your email address"
-            value={useremail}
-            onChangeText={setUseremail}
-            />*/}
-
             <TextInput
-            placeholder="Your email address"
-            value={useremail}
-            onChangeText={(e) => setUseremail(e.target.value)}
+                placeholder="Your email address"
+                value={useremail}
+                onSubmitEditing={Keyboard.dismiss} 
+                onChangeText={(e) => setUseremail(e.target.value)}
             />
-
-
-
-
             <Text>Password</Text>
-
-
-            {/*<TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            />*/}
-
             <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={(e) => setPassword(e.target.value)}
-            secureTextEntry
+                placeholder="Password"
+                value={password}
+                onSubmitEditing={Keyboard.dismiss} 
+                onChangeText={(e) => setPassword(e.target.value)}
+                secureTextEntry
             />
-
             <Button title="FORGOT PASSWORD" />
-            {/*<Button title="LOGIN" onPress={() => signIn({ useremail, password })} />*/}
-
-            <Button title="LOGIN" onPress={() => dispatch(authValidation())} />
-
+            <Button title="LOGIN" onPress={() => dispatch(authValidation({
+                email: useremail,
+                password: password
+            }))} />
             <View style={{textAlign: 'center'}}>
                 <Text>Lets test 2 ways to log in</Text>
             </View>
